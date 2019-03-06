@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using KBEngine;
 
-public class Avatar : Entity
+public class Avatar : AvatarBase
 {
     public override void __init__()
     {
         base.__init__();
         Debug.Log("Avatar:__init__");
+        if (isPlayer())
+        {
+            KBEngine.Event.registerIn("updatePlayer", this, "updatePlayer");
+        }
     }
 
     public override void onEnterSpace()
@@ -29,5 +33,14 @@ public class Avatar : Entity
         {
             KBEngine.Event.fireOut("OnEnterWorld", this);
         }
+    }
+
+    public virtual void updatePlayer(float x, float y, float z, float yaw)
+    {
+        position.x = x;
+        position.y = y;
+        position.z = z;
+
+        direction.z = yaw;
     }
 }

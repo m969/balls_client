@@ -23,11 +23,17 @@ public class World : MonoBehaviour
 
     public void OnMainAvatarEnterWorld(KBEngine.Entity entity)
     {
-        Instantiate(avatarPrefab);
+        Debug.Log("World:OnMainAvatarEnterWorld");
+        var avatarObj = Instantiate(avatarPrefab);
+        entity.renderObj = avatarObj;
+        avatarObj.GetComponent<AvatarView>().avatar = entity as Avatar;
     }
 
     public void OnEnterWorld(KBEngine.Entity entity)
     {
-        Instantiate(avatarPrefab);
+        Debug.Log("World:OnEnterWorld");
+        var avatarObj = Instantiate(avatarPrefab);
+        entity.renderObj = avatarObj;
+        avatarObj.GetComponent<AvatarView>().avatar = entity as Avatar;
     }
 }

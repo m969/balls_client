@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using KBEngine;
 
-public class Account : Entity
+public class Account : AccountBase
 {
     public override void __init__()
     {

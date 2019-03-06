@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using KBEngine;
 
-public class Food : Entity
+public class Food : FoodBase
 {
     public override void __init__()
     {
