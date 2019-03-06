@@ -13,7 +13,6 @@ public class LoginPanel : MonoBehaviour
         set
         {
             _accountName = value;
-            print("LoginPanel:_accountName=" + _accountName);
         }
     }
 
@@ -22,7 +21,6 @@ public class LoginPanel : MonoBehaviour
         set
         {
             _password = value;
-            print("LoginPanel:_password=" + _password);
         }
     }
 
@@ -55,12 +53,12 @@ public class LoginPanel : MonoBehaviour
 
     public void onCreateAccountResult(UInt16 retcode, byte[] datas)
     {
-        print("LoginPanel:onCreateAccountResult " + " retcode=" + retcode + " datas=" + datas);
+        print("LoginPanel:onCreateAccountResult " + "datas=" + datas + " " + KBEngine.ServerErrorDescrs.serverErrs[retcode]);
     }
 
     public void onLoginFailed(UInt16 retcode)
     {
-        print("LoginPanel:onLoginFailed " + " retcode=" + retcode);
+        print("LoginPanel:onLoginFailed " + KBEngine.ServerErrorDescrs.serverErrs[retcode]);
     }
 
     public void onLoginSuccess()

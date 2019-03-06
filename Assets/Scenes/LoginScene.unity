@@ -353,6 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 374138748}
   - component: {fileID: 374138749}
+  - component: {fileID: 374138750}
   m_Layer: 0
   m_Name: KBEClientApp
   m_TagString: Untagged
@@ -403,6 +404,22 @@ MonoBehaviour:
   isOnInitCallPropertysSetMethods: 1
   forceDisableUDP: 0
   automaticallyUpdateSDK: 1
+--- !u!114 &374138750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374138747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d6249d64f95ba41b60db0bca43d459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatarPrefab: {fileID: 7793310236378153409, guid: a4c380aef8fdac747960a042ed974d47,
+    type: 3}
+  foodPrefab: {fileID: 6440785515225094431, guid: c5f6f788c7b9f8148938b583820e53cd,
+    type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

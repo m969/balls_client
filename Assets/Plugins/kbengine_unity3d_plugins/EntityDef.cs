@@ -123,6 +123,102 @@ namespace KBEngine
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), property(spaceID / 40002).");
 
 			pAccountModule.useMethodDescrAlias = true;
+			ScriptModule pAvatarModule = new ScriptModule("Avatar");
+			EntityDef.moduledefs["Avatar"] = pAvatarModule;
+			EntityDef.idmoduledefs[2] = pAvatarModule;
+
+			Property pAvatar_position = new Property();
+			pAvatar_position.name = "position";
+			pAvatar_position.properUtype = 40000;
+			pAvatar_position.properFlags = 4;
+			pAvatar_position.aliasID = 1;
+			Vector3 Avatar_position_defval = new Vector3();
+			pAvatar_position.defaultVal = Avatar_position_defval;
+			pAvatarModule.propertys["position"] = pAvatar_position; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_position.aliasID] = pAvatar_position;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(position / 40000).");
+
+			Property pAvatar_direction = new Property();
+			pAvatar_direction.name = "direction";
+			pAvatar_direction.properUtype = 40001;
+			pAvatar_direction.properFlags = 4;
+			pAvatar_direction.aliasID = 2;
+			Vector3 Avatar_direction_defval = new Vector3();
+			pAvatar_direction.defaultVal = Avatar_direction_defval;
+			pAvatarModule.propertys["direction"] = pAvatar_direction; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_direction.aliasID] = pAvatar_direction;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(direction / 40001).");
+
+			Property pAvatar_spaceID = new Property();
+			pAvatar_spaceID.name = "spaceID";
+			pAvatar_spaceID.properUtype = 40002;
+			pAvatar_spaceID.properFlags = 16;
+			pAvatar_spaceID.aliasID = 3;
+			UInt32 Avatar_spaceID_defval;
+			UInt32.TryParse("", out Avatar_spaceID_defval);
+			pAvatar_spaceID.defaultVal = Avatar_spaceID_defval;
+			pAvatarModule.propertys["spaceID"] = pAvatar_spaceID; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_spaceID.aliasID] = pAvatar_spaceID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(spaceID / 40002).");
+
+			pAvatarModule.useMethodDescrAlias = true;
+			ScriptModule pFoodModule = new ScriptModule("Food");
+			EntityDef.moduledefs["Food"] = pFoodModule;
+			EntityDef.idmoduledefs[4] = pFoodModule;
+
+			Property pFood_position = new Property();
+			pFood_position.name = "position";
+			pFood_position.properUtype = 40000;
+			pFood_position.properFlags = 4;
+			pFood_position.aliasID = 1;
+			Vector3 Food_position_defval = new Vector3();
+			pFood_position.defaultVal = Food_position_defval;
+			pFoodModule.propertys["position"] = pFood_position; 
+
+			pFoodModule.usePropertyDescrAlias = true;
+			pFoodModule.idpropertys[(UInt16)pFood_position.aliasID] = pFood_position;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Food), property(position / 40000).");
+
+			Property pFood_direction = new Property();
+			pFood_direction.name = "direction";
+			pFood_direction.properUtype = 40001;
+			pFood_direction.properFlags = 4;
+			pFood_direction.aliasID = 2;
+			Vector3 Food_direction_defval = new Vector3();
+			pFood_direction.defaultVal = Food_direction_defval;
+			pFoodModule.propertys["direction"] = pFood_direction; 
+
+			pFoodModule.usePropertyDescrAlias = true;
+			pFoodModule.idpropertys[(UInt16)pFood_direction.aliasID] = pFood_direction;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Food), property(direction / 40001).");
+
+			Property pFood_spaceID = new Property();
+			pFood_spaceID.name = "spaceID";
+			pFood_spaceID.properUtype = 40002;
+			pFood_spaceID.properFlags = 16;
+			pFood_spaceID.aliasID = 3;
+			UInt32 Food_spaceID_defval;
+			UInt32.TryParse("", out Food_spaceID_defval);
+			pFood_spaceID.defaultVal = Food_spaceID_defval;
+			pFoodModule.propertys["spaceID"] = pFood_spaceID; 
+
+			pFoodModule.usePropertyDescrAlias = true;
+			pFoodModule.idpropertys[(UInt16)pFood_spaceID.aliasID] = pFood_spaceID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Food), property(spaceID / 40002).");
+
+			pFoodModule.useMethodDescrAlias = true;
 		}
 
 		public static void initDefTypes()
