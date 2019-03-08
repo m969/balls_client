@@ -24,9 +24,21 @@ public class AvatarView : MonoBehaviour
         if (avatar == null)
             return;
         if (avatar.isPlayer())
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                _isMouseDown = true;
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                _isMouseDown = false;
+            }
             KBEngine.Event.fireIn("updatePlayer", gameObject.transform.position.x, gameObject.transform.position.z, gameObject.transform.position.y, gameObject.transform.rotation.eulerAngles.y);
+        }
         else
+        {
             transform.position = new Vector3(avatar.position.x, avatar.position.z, transform.position.z);
+        }
     }
 
     void FixedUpdate()

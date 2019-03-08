@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class World : MonoBehaviour
 {
+    public GameObject mainAvatarPrefab;
     public GameObject avatarPrefab;
     public GameObject foodPrefab;
 
@@ -24,16 +25,25 @@ public class World : MonoBehaviour
     public void OnMainAvatarEnterWorld(KBEngine.Entity entity)
     {
         Debug.Log("World:OnMainAvatarEnterWorld");
-        var avatarObj = Instantiate(avatarPrefab);
+        var avatarObj = Instantiate(mainAvatarPrefab);
         entity.renderObj = avatarObj;
         avatarObj.GetComponent<AvatarView>().avatar = entity as Avatar;
     }
 
     public void OnEnterWorld(KBEngine.Entity entity)
     {
-        Debug.Log("World:OnEnterWorld");
-        var avatarObj = Instantiate(avatarPrefab);
-        entity.renderObj = avatarObj;
-        avatarObj.GetComponent<AvatarView>().avatar = entity as Avatar;
+        Debug.Log("World:OnEnterWorld " + entity.className + " " +  entity.id);
+        GameObject entityObj = null;
+        if (entity.className == "Avatar")
+        {
+            entityObj = Instantiate(avatarPrefab);
+            entityObj.GetComponent<AvatarView>().avatar = entity as Avatar;
+        }
+        else
+        {
+            entityObj = Instantiate(foodPrefab);
+            entityObj.transform.position = new Vector3(entity.position.x, entity.position.z, entityObj.transform.position.z);
+        }
+        entity.renderObj = entityObj;
     }
 }

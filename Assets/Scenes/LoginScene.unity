@@ -416,6 +416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d6249d64f95ba41b60db0bca43d459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainAvatarPrefab: {fileID: 7793310236378153409, guid: da67f797c3b9e914f9e8bb99f8b4e2f8,
+    type: 3}
   avatarPrefab: {fileID: 7793310236378153409, guid: a4c380aef8fdac747960a042ed974d47,
     type: 3}
   foodPrefab: {fileID: 6440785515225094431, guid: c5f6f788c7b9f8148938b583820e53cd,
