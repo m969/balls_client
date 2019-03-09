@@ -402,7 +402,7 @@ MonoBehaviour:
   UDP_RECV_BUFFER_MAX: 1472
   useAliasEntityID: 1
   isOnInitCallPropertysSetMethods: 1
-  forceDisableUDP: 0
+  forceDisableUDP: 1
   automaticallyUpdateSDK: 1
 --- !u!114 &374138750
 MonoBehaviour:

@@ -185,7 +185,37 @@ namespace KBEngine
 
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(moveSpeed / 1).");
 
+			List<DATATYPE_BASE> pAvatar_recieveChat_args = new List<DATATYPE_BASE>();
+			pAvatar_recieveChat_args.Add(EntityDef.id2datatypes[12]);
+
+			Method pAvatar_recieveChat = new Method();
+			pAvatar_recieveChat.name = "recieveChat";
+			pAvatar_recieveChat.methodUtype = 4;
+			pAvatar_recieveChat.aliasID = 1;
+			pAvatar_recieveChat.args = pAvatar_recieveChat_args;
+
+			pAvatarModule.methods["recieveChat"] = pAvatar_recieveChat; 
 			pAvatarModule.useMethodDescrAlias = true;
+			pAvatarModule.idmethods[(UInt16)pAvatar_recieveChat.aliasID] = pAvatar_recieveChat;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), method(recieveChat / 4).");
+
+			List<DATATYPE_BASE> pAvatar_sendChat_args = new List<DATATYPE_BASE>();
+			pAvatar_sendChat_args.Add(EntityDef.id2datatypes[12]);
+
+			Method pAvatar_sendChat = new Method();
+			pAvatar_sendChat.name = "sendChat";
+			pAvatar_sendChat.methodUtype = 2;
+			pAvatar_sendChat.aliasID = -1;
+			pAvatar_sendChat.args = pAvatar_sendChat_args;
+
+			pAvatarModule.methods["sendChat"] = pAvatar_sendChat; 
+			pAvatarModule.base_methods["sendChat"] = pAvatar_sendChat;
+
+			pAvatarModule.idbase_methods[pAvatar_sendChat.methodUtype] = pAvatar_sendChat;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), method(sendChat / 2).");
+
 			ScriptModule pFoodModule = new ScriptModule("Food");
 			EntityDef.moduledefs["Food"] = pFoodModule;
 			EntityDef.idmoduledefs[4] = pFoodModule;

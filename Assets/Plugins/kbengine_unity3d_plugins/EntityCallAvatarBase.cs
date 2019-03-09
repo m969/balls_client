@@ -21,6 +21,16 @@ namespace KBEngine
 			type = ENTITYCALL_TYPE.ENTITYCALL_TYPE_BASE;
 		}
 
+		public void sendChat(string arg1)
+		{
+			Bundle pBundle = newCall("sendChat", 0);
+			if(pBundle == null)
+				return;
+
+			bundle.writeUnicode(arg1);
+			sendCall(null);
+		}
+
 	}
 
 	public class EntityCellEntityCall_AvatarBase : EntityCall

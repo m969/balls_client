@@ -22,6 +22,7 @@ namespace KBEngine
 		public float moveSpeed = 1f;
 		public virtual void onMoveSpeedChanged(float oldValue) {}
 
+		public abstract void recieveChat(string arg1); 
 
 		public AvatarBase()
 		{
@@ -113,6 +114,10 @@ namespace KBEngine
 
 			switch(method.methodUtype)
 			{
+				case 4:
+					string recieveChat_arg1 = stream.readUnicode();
+					recieveChat(recieveChat_arg1);
+					break;
 				default:
 					break;
 			};

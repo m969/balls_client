@@ -46,14 +46,6 @@ public class AvatarView : MonoBehaviour
             return;
         if (avatar.isPlayer())
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                _isMouseDown = true;
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                _isMouseDown = false;
-            }
             if (_isMouseDown)
             {
                 Vector3 movement = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
