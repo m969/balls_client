@@ -16,4 +16,15 @@ public class Food : FoodBase
         base.onEnterWorld();
         KBEngine.Event.fireOut("OnEnterWorld", this);
     }
+
+    public override void onLeaveWorld()
+    {
+        base.onLeaveWorld();
+        KBEngine.Event.fireOut("OnLeaveWorld", this);
+    }
+
+    public override void onDestroy()
+    {
+        base.onDestroy();
+    }
 }

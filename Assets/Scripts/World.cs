@@ -14,6 +14,7 @@ public class World : MonoBehaviour
     {
         KBEngine.Event.registerOut("OnMainAvatarEnterWorld", this, "OnMainAvatarEnterWorld");
         KBEngine.Event.registerOut("OnEnterWorld", this, "OnEnterWorld");
+        KBEngine.Event.registerOut("OnLeaveWorld", new System.Action<KBEngine.Entity>(OnLeaveWorld));
     }
 
     // Update is called once per frame
@@ -45,5 +46,11 @@ public class World : MonoBehaviour
             entityObj.transform.position = new Vector3(entity.position.x, entity.position.z, entityObj.transform.position.z);
         }
         entity.renderObj = entityObj;
+    }
+
+    public void OnLeaveWorld(KBEngine.Entity entity)
+    {
+        Debug.Log("World:OnLeaveWorld " + entity.className + " " + entity.id);
+        Destroy(entity.renderObj as GameObject);
     }
 }
