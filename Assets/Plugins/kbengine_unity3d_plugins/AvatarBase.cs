@@ -19,6 +19,8 @@ namespace KBEngine
 		public EntityBaseEntityCall_AvatarBase baseEntityCall = null;
 		public EntityCellEntityCall_AvatarBase cellEntityCall = null;
 
+		public float moveSpeed = 1f;
+		public virtual void onMoveSpeedChanged(float oldValue) {}
 
 
 		public AvatarBase()
@@ -175,6 +177,22 @@ namespace KBEngine
 						}
 
 						break;
+					case 1:
+						float oldval_moveSpeed = moveSpeed;
+						moveSpeed = stream.readFloat();
+
+						if(prop.isBase())
+						{
+							if(inited)
+								onMoveSpeedChanged(oldval_moveSpeed);
+						}
+						else
+						{
+							if(inWorld)
+								onMoveSpeedChanged(oldval_moveSpeed);
+						}
+
+						break;
 					case 40000:
 						Vector3 oldval_position = position;
 						position = stream.readVector3();
@@ -222,6 +240,27 @@ namespace KBEngine
 					else
 					{
 						onDirectionChanged(oldval_direction);
+					}
+				}
+			}
+
+			float oldval_moveSpeed = moveSpeed;
+			Property prop_moveSpeed = pdatas[4];
+			if(prop_moveSpeed.isBase())
+			{
+				if(inited && !inWorld)
+					onMoveSpeedChanged(oldval_moveSpeed);
+			}
+			else
+			{
+				if(inWorld)
+				{
+					if(prop_moveSpeed.isOwnerOnly() && !isPlayer())
+					{
+					}
+					else
+					{
+						onMoveSpeedChanged(oldval_moveSpeed);
 					}
 				}
 			}

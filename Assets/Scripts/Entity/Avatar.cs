@@ -15,6 +15,12 @@ public class Avatar : AvatarBase
         }
     }
 
+    public override void onMoveSpeedChanged(float oldValue)
+    {
+        base.onMoveSpeedChanged(oldValue);
+        KBEngine.Event.fireOut("OnMoveSpeedChanged", this);
+    }
+
     public override void onEnterSpace()
     {
         base.onEnterSpace();

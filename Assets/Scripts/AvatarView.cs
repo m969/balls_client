@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AvatarView : MonoBehaviour
 {
-    [Range(0, 1.0f)]
-    public float speed = 0.1f;
+    public float speed = 1;
     public Avatar avatar;
 
     private bool _isMouseDown = false;
@@ -67,7 +66,7 @@ public class AvatarView : MonoBehaviour
                 movement.Normalize();
                 _lastMoveDir = movement;
             }
-            transform.position = transform.position + _lastMoveDir * speed;
+            transform.position = transform.position + _lastMoveDir * speed * 0.1f;
         }
     }
 }

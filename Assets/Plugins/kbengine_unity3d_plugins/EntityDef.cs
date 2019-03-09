@@ -170,6 +170,21 @@ namespace KBEngine
 
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(spaceID / 40002).");
 
+			Property pAvatar_moveSpeed = new Property();
+			pAvatar_moveSpeed.name = "moveSpeed";
+			pAvatar_moveSpeed.properUtype = 1;
+			pAvatar_moveSpeed.properFlags = 4;
+			pAvatar_moveSpeed.aliasID = 4;
+			float Avatar_moveSpeed_defval;
+			float.TryParse("1", out Avatar_moveSpeed_defval);
+			pAvatar_moveSpeed.defaultVal = Avatar_moveSpeed_defval;
+			pAvatarModule.propertys["moveSpeed"] = pAvatar_moveSpeed; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_moveSpeed.aliasID] = pAvatar_moveSpeed;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(moveSpeed / 1).");
+
 			pAvatarModule.useMethodDescrAlias = true;
 			ScriptModule pFoodModule = new ScriptModule("Food");
 			EntityDef.moduledefs["Food"] = pFoodModule;
